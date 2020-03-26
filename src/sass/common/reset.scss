@@ -1,0 +1,130 @@
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei",sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    &:focus {
+        outline: none;
+    }
+}
+body{
+    background-color:#F8FAFA;
+}
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+    -webkit-appearance: none;
+}
+textarea { 
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);
+}
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+}
+
+[v-cloak]{
+    display: none;
+}
+
+.opacity0{
+    opacity: 0;
+}
+
+//body padding-bottom fixed
+.pb98{
+    padding-bottom: 2.45rem;
+}
+// bg write style
+.writeBox{
+    background: #FFFFFF;
+    box-shadow: 0 0.1rem 0.3rem 0 rgba(138,169,173,0.06);
+    border-radius: 0.3rem;
+    width: 17.35rem;
+    box-sizing: border-box;
+    margin: auto;
+    h2{
+        font-size: 0.7rem;
+        line-height: 1.0rem;
+        color: #4B5684;
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        border-bottom: solid 1px #EDEDED;
+        padding-left: 0.9rem;
+        span{
+            font-size: 0.6rem;
+        }
+    }
+}
+.plr36{
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+}
+.mtb24{
+    margin-top:0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.comButActive{
+    background: #8FBEC3;
+    border-radius: 1.25rem;
+    color: #fff;
+    text-align: center;
+    display: block;
+    font-weight: 700;
+}
+
+// fot style
+.butBoxFixed{
+    height: 2.45rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    background: #fff;
+    box-shadow: 0 0.1rem 0.3rem 0 rgba(138,169,173,0.06);
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top:solid 1px #F7F9F9;
+    font-weight: 700;
+    span{
+        width: 5.0rem;
+        height: 1.6rem;
+        line-height: 1.6rem;
+        text-align: center;
+        color: #8F8F8F;
+        font-size: 0.75rem;
+        // border: 0.05rem solid #E1E1E1;
+        border-radius: 1.25rem;
+        background: #f7f7f7
+    }
+    .active{
+        background: #4566EA;
+        color: #fff;
+        border: 0.05rem solid #4566EA;
+    }
+}
+
+
+
+
+

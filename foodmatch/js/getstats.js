@@ -1,0 +1,1 @@
+"use strict";function GetMatchingStats(t,a){var e=getUrlParam("openIdItem"),o={type:getUrlParam("foodMatchtype"),openId:e};ajaxRequest("/v2/food/matching/user/status/find.do","POST",JSON.stringify(o),function(t){if("SUCCESS"==t.retCode){if(t.foodMatch){var e=t.foodMatch.foodMatchStatus;a(e)}}else alert(t.retCode)})}

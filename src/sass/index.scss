@@ -1,0 +1,166 @@
+body{
+	display: none
+}
+.containerBox{
+	padding-bottom: 2.45rem;
+	.img-box{
+		position: relative;
+		img{
+			width: 18.75rem;
+			height: 17.8rem;
+		}
+		.yinhao{
+			width: 1.05rem;
+			height: .8rem;
+			background: url("../image/dian.png") no-repeat;
+			background-size: cover;
+			position: absolute;
+			left: 1.4rem;
+			bottom: 1rem;
+		}
+	}
+	.img-font{
+		font-size: 1.85rem;
+		color: #465797;
+		line-height: 2.25rem;
+		width: 11.9rem;
+		height: 4.375rem;
+		position: absolute;
+		top: 1.8rem;
+		left: 1.5rem;
+		font-weight: bold;
+	}
+	.banner{
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.buttonBox{
+		width: 100%;
+		height: 2.45rem;
+		background-color:#ffffff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		bottom:0;
+		left: 0;
+		box-shadow: 0 -0.1rem .25rem 0 rgba(0,0,0,0.05);
+		.startBtn{
+			width: 85%;
+			background-color:#4566EA;
+			height: 2.0rem;
+			color:#fff;
+			border-radius: 1.1rem;
+			font-size: 0.75rem;
+			box-shadow: 0 -0.1rem .25rem 0 rgba(0,0,0,0.05);
+		}
+	}
+	// 中间内容区域
+	.content-wrap{
+		width: 100%;
+		height: 100%;
+		padding: 0 1.75rem;
+		
+		box-sizing: border-box;
+		background: #fff;
+		.scope-pople{
+			font-size: .7rem;
+			color: #666666;
+			// padding-top: .8rem;
+			padding-bottom: .4rem;
+		}
+		.content-item{
+			.num-icon{
+				width: 4rem;
+				height: 2.65rem;
+				background: #fff;
+				display: block;
+				margin-top: 2.7rem;
+				margin-bottom: 1.875rem;
+			}
+			.num-icon-first{
+				margin-top: 2.175rem;
+			}
+			.icon-ul{
+				// background: blue;
+				display: flex;
+				justify-content: space-between;
+				font-size: .7rem;
+				color: #666666;
+				li{
+					img{
+						width: 2.4rem;
+						height: 2.4rem;
+						display: block;
+						margin: 0 auto;
+					}
+					span{
+						display: block;
+						margin-top: 1rem;
+					}
+				}
+			}
+			.fangan-ul{
+				width: 100%;
+				li{
+					width: 100%;
+					height: 2rem;
+					text-align: center;
+					line-height: 2rem;
+					color: #FFFFFF;
+					background: rgba(69,102,234,0.42);
+					border-radius: 1rem;
+					font-size: .7rem;
+					margin-bottom: 1rem;
+					display: flex;
+				}
+				div{
+					
+					width: 2rem;
+					height: 2rem;
+					border-radius: 2rem;
+					background: rgba(255,255,255,0.5);
+					float: left;
+				}
+				p{
+					flex: 1;
+					height: 2rem;
+					text-align: center;
+					line-height: 2rem;
+					display: flex;
+					padding-left: .3rem;
+					box-sizing: border-box;
+				}
+			}
+		}
+		.cankao{
+			width: 100%;
+			div{
+				font-size: .85rem;
+				color: #333333;
+				margin-bottom: .5rem;
+				margin-top: 2.5rem;
+			}
+			li{
+				font-size: .6rem;
+				color: #666666;
+				line-height: .9rem;
+			}
+		}
+		.group-icon{
+			width: 10.8rem;
+			height: 2.6rem;
+			margin:  1.725rem auto .85rem;
+			display: block
+		}
+	}
+}
+
+.zyck{
+	width: 3.4rem;
+	height: .85rem;
+	background: url("../image/zyck.png") no-repeat;
+	background-size: cover;
+}

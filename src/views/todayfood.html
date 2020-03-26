@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="../css/common/reset.css"/>
+    <link rel="stylesheet" href="../css/common/loading.css"/>
+    <link rel="stylesheet" href="../css/common/tip.css"/>
+	<link rel="stylesheet" href="../css/todayfood.css"/>
+	<link rel="stylesheet" href="../css/fontcss/iconfont.css"/>
+    <title>今日食材</title>
+</head>
+<body>
+	<div class="loading">
+		<div class="loadingBox"></div>
+	</div>
+	<div class="tip" style="display: none;">
+    	<div class="tipBox animated">
+	        <p></p>
+    	</div>
+    </div>
+	<div class="containerBox" id="containerBox">
+		<div class="titleBtn" @click="recipeList()"><i class="icon-today iconfont icon-peican-fanhuishipu-"></i>返回食谱</div>
+		<div class="writeBox mtb24 messageBox" v-show="breakfast.foodList && breakfast.foodList.length>0">
+			<h4 class="recipelistTit"><span>早餐</span><p>{{breakfast.count}}克</p></h4>
+			<div class="recipelist">
+				<dl v-for="foodList in breakfast.foodList">
+					<dt><p>{{foodList.foodName}}</p></dt>
+					<dd v-for="item in foodList.materialList">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.materialName}}</span>
+						</p>
+						<i>{{item.materialCount}}克</i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="breakfastAddition.foodList && breakfastAddition.foodList.length>0">
+			<h4 class="recipelistTit"><span>早加</span><p>{{breakfastAddition.count}}克</p></h4>
+			<div class="recipelist">
+				<dl v-for="foodList in breakfastAddition.foodList">
+					<dt><p>{{foodList.foodName}}</p></dt>
+					<dd v-for="item in foodList.materialList">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.materialName}}</span>
+						</p>
+						<i>{{item.materialCount}}克</i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="lunch.foodList && lunch.foodList.length>0">
+			<h4 class="recipelistTit"><span>午餐</span><p>{{lunch.count}}克</p></h4>
+			<div class="recipelist">
+				<dl v-for="foodList in lunch.foodList">
+					<dt><p>{{foodList.foodName}}</p></dt>
+					<dd v-for="item in foodList.materialList">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.materialName}}</span>
+						</p>
+						<i>{{item.materialCount}}克</i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="lunchAddition.foodList && lunchAddition.foodList.length>0">
+			<h4 class="recipelistTit"><span>午加</span><p>{{lunchAddition.count}}克</p></h4>
+			<div class="recipelist">
+				<dl v-for="foodList in lunchAddition.foodList">
+					<dt><p>{{foodList.foodName}}</p></dt>
+					<dd v-for="item in foodList.materialList">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.materialName}}</span>
+						</p>
+						<i>{{item.materialCount}}克</i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="dinner.foodList && dinner.foodList.length>0">
+			<h4 class="recipelistTit"><span>晚餐</span><p>{{dinner.count}}克</p></h4>
+			<div class="recipelist">
+				<dl v-for="foodList in dinner.foodList">
+					<dt><p>{{foodList.foodName}}</p></dt>
+					<dd v-for="item in foodList.materialList">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.materialName}}</span>
+						</p>
+						<i>{{item.materialCount}}克</i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="dinnerAddition.foodList && dinnerAddition.foodList.length>0">
+			<h4 class="recipelistTit"><span>晚加</span><p>{{dinnerAddition.count}}克</p></h4>
+			<div class="recipelist">
+				<dl v-for="foodList in dinnerAddition.foodList">
+					<dt><p>{{foodList.foodName}}</p></dt>
+					<dd v-for="item in foodList.materialList">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.materialName}}</span>
+						</p>
+						<i>{{item.materialCount}}克</i>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	
+		<!-- <div class="butBoxFixed">
+			<span class="" @click="toIndex()">首页</span>
+			<span :class="{active:isActive}" @click="generateRecipes()">返回</span>
+		</div> -->
+	</div>
+<script src="../js/libs/jquery-1.10.1.min.js"></script>
+<script src="../js/libs/vue.min.js"></script>
+<script src="../js/libs/echarts.min.js"></script>
+<script src="../js/libs/jsrsasign-all-min.js"></script>
+<script src=".././config.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/todayfood.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+.weekRecipes{
+	padding:0 0.8rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.8rem;
+	ul{
+		li{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			font-size: 0.7rem;
+			line-height: 1.0rem;
+			padding:0.7rem 0 0.9rem; 
+			span{
+				i{
+					color:#8FBEC3;
+					font-style:normal;
+				}
+			}
+			p{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				img{
+					width: 0.6rem;
+					height: 0.6rem;
+				}
+			}
+		}
+		.past{
+			color:#8F8F8F;
+		}
+	}
+	.btn{
+		width: 100%;
+		height: 2.0rem;
+		color: #8FBEC3;
+		border: 0.05rem solid #8FBEC3;
+		border-radius: 1.25rem;
+		font-size: 0.75rem;
+		text-align: center;
+		line-height: 2rem;
+		margin-top: 0.7rem;
+	}
+}
+.ruleList{
+	padding: 1.2rem 0.9rem 0.75rem;
+	h3{
+		font-size: 0.8rem;
+		line-height: 1.125rem;
+		color: #333;
+		margin-bottom: 0.425rem;
+	}
+	ul{
+		li{
+			color: #8F8F8F;
+			text-indent: 2em;
+			font-size: 0.7rem;
+			line-height: 1.05rem;
+			margin-bottom: 0.25rem;
+			position: relative;   
+			text-align: justify;
+		}
+		li:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 0.225rem;
+			height: 0.225rem;
+			top: 0.35rem;
+			left:0.75rem;
+			border-radius: 50%;
+			background-color:#8FBEC3;
+		}
+	}
+}
+// conformBox
+.conformBox{
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.3);
+	.containerBoxnr{
+		width: 14.45rem;
+		height: 8.4rem;
+		background-color: #fff;
+		border-radius:0.3rem;
+		padding:0.25rem;
+		box-sizing:border-box;
+		
+		img{
+			width: 1.5rem;
+			height: 1.5rem;
+			float: right;
+			cursor: pointer;
+		}
+		
+
+		dl{
+			margin-top: 2.7rem;
+			dt{
+				font-size: 0.7rem;
+				color:#333;
+				text-align: center;
+				margin-bottom: 2.25rem;
+			}
+			dd{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				padding:0 1.3rem;
+				span{
+					width: 5.0rem;
+					height: 1.6rem;
+					border: 0.05rem solid #E1E1E1;
+					border-radius: 1.25rem;
+					text-align: center;
+					font-size: 0.75rem;
+					color:#8F8F8F;
+					line-height: 1.6rem;
+					cursor: pointer;
+				}
+				.cancle{
+					color: #8FBEC3;
+					border: 0.05rem solid #8FBEC3;
+				}
+			}
+		}
+	}
+	
+}

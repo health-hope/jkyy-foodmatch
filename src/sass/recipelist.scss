@@ -1,0 +1,107 @@
+.titleBtn{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.7rem;
+	margin-right: 0.7rem;
+	margin-top: 0.7rem;
+	color: #626262;
+	font-size: 0.75rem;
+	line-height: 1.05rem;
+	background-color: #fff;
+	box-shadow: 0 0.1rem 0.3rem 0 rgba(138,169,173,0.06);
+	border-radius: 0.3rem;
+	height: 2.0rem;
+	cursor: pointer;
+	img{
+		width: 1.2rem;
+		height: 1.2rem;
+		margin-right: 0.55rem;
+	}
+}
+.recipelistTit{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 2.175rem;
+	border-bottom: solid 1px #ededed;
+	font-size: 0.7rem;
+	padding:0 0.9rem;
+	span{
+		color: #8FBEC3;
+	}
+	p{
+		color: #626262;
+	}
+}
+.recipelist{
+	ul{
+		padding-bottom: 0.7rem;
+		margin:0.025rem 0.9rem;
+		li{
+			margin-top: 0.7rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			p{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				img{
+					display: block;
+					width: 2.25rem;
+					height: 2.25rem;
+					margin-right: 0.7rem;
+					border-radius:50%;
+				}
+				span{
+					font-size: 0.7rem;
+					color:#333;
+					i{
+						font-style: normal;
+						color:#8F8F8F;
+						font-size: 0.6rem;
+						display: block;
+						
+					}
+				}
+			}
+			@-webkit-keyframes spin {
+	            from {
+	                -webkit-transform: rotate(0deg);
+	            }
+	            to {
+	                -webkit-transform: rotate(300deg);
+	            }
+	        }
+	        
+	        @keyframes spin {
+	            from {
+	                transform: rotate(0deg);
+	            }
+	            to {
+	                transform: rotate(300deg);
+	            }
+	        }
+			img{
+				width: 1.4rem;
+				height: 1.4rem;
+				display: block;
+				cursor: pointer;
+			}
+			img:hover::after{
+				// border:solid 1px;
+				// -webkit-animation: spin 1s linear 1s 2;
+	   //  		animation: spin 1s linear 1s 2;
+			   -webkit-transform:rotate(360deg);
+			    transform:rotate(360deg);
+			    -webkit-transition:-webkit-transform 1s linear;
+			    transition:transform 1s linear;
+			}
+
+		}
+	}
+}

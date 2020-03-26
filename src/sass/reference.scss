@@ -1,0 +1,114 @@
+.goat{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	.echarts{
+		position: relative;
+		width: 140px;
+		height: 140px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		span{
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top:0;
+			color:#929292;
+			font-size: 12px;
+			padding-top: 55px;
+			text-align: center;
+			
+		}
+		#eneryRatio{
+			width: 140px;
+			height: 140px;
+		}
+	}
+	.echarslist{
+		ul{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-wrap:wrap;
+			flex-basis:50%;
+			li{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				font-size: 0.6rem;
+				color: #606060;
+				line-height: 0.825rem;
+				margin-bottom: 0.6rem;
+				margin-left: 0.75rem;
+				width: 40%;
+				span{
+					background-color: #FECE55;
+					width: 0.25rem;
+					height: 0.25rem;
+					border-radius: 0.125rem;
+					display: inline-block;
+					margin-right: 0.4rem;
+				}
+			}
+		}
+	}
+}
+.referencelist{
+	padding-left: 0.9rem;
+	padding-top: 0.975rem;
+	padding-right: 0.9rem;
+	padding-bottom: 1.0rem;
+	dl{
+		dt{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+		dd{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			color:#929292;
+			font-size: 0.7rem;
+			line-height: 1.0rem;
+			margin-bottom: 0.275rem;
+		}
+		p{
+			height: 1.0rem;
+			line-height: 1.0rem;
+			padding:0 0.475rem;
+			font-size: 0.6rem;
+			color: #4566EA;
+			background: rgba(69,102,234,0.10);;
+			border-radius: 0.5rem;
+			margin-top: 0.25rem;
+			margin-bottom: 0.25rem;
+			display: inline-block;
+			text-align: center;
+		}
+	}
+	.heat{
+		dt{
+			font-weight: 400;
+			margin-bottom: 0.275rem;
+			font-size: 0.7rem;
+			line-height: 1.0rem;
+			justify-content: space-between;
+			color: #4B5684 ;
+			i{
+				color: #4566EA ;
+			}
+		}
+	}
+}
+.line-auto{
+	display: flex;
+	align-items: center;
+	.dian-icon{
+		font-size: 1rem !important;
+		color: #4566ea;
+		margin-right: .55rem;
+	}
+}

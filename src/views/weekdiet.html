@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="../css/common/reset.css"/>
+    <link rel="stylesheet" href="../css/common/loading.css"/>
+    <link rel="stylesheet" href="../css/common/tip.css"/>
+	<link rel="stylesheet" href="../css/weekdiet.css"/>
+	<link rel="stylesheet" href="../css/fontcss/iconfont.css"/>
+    <title>配餐</title>
+</head>
+<body class="pb98">
+		<img src="../image/tabbg.png" class="yinying">
+	<div class="loading">
+		<div class="loadingBox"></div>
+	</div>
+	<div class="tip" style="display: none;">
+    	<div class="tipBox animated">
+	        <p></p>
+    	</div>
+    </div>
+	<div class="containerBox" id="containerBox" v-cloak>
+		<div class="weekDayListBox">
+			<ul>
+				<li v-for="(item,index) in recipesInfo.recipes" :key="index"  :class="{today:item.isCurDay=='2',clickDay:index===actIdx,lastDayToday:item.isCurDay=='2' && (index===actIdx)}" @click="weekDietXq(recipesInfo.recipesId,item.recipesDate,openIdItem,index)">{{item.recipesDate | fomatDateHZ}}</li>
+			</ul>
+			
+		</div>
+		<div class="weekMarks">
+			<p v-show="isAddMeals">*每餐推荐食物如果吃不完，可以拆分成加餐食用</p>
+			<p>*在估算食物重量中，查看估算食物方法</p>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="breakfast.foodList && breakfast.foodList.length>0">
+			<h4 class="recipelistTit"><span>早餐</span><p class="themefont">{{breakfast.heat}}大卡</p></h4>
+			<div class="recipelist">
+				<ul>
+					<li v-for="(item,index) in breakfast.foodList" :key="index">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.foodName}}<i>{{item.foodHeat}}大卡/{{item.foodCount}}{{item.unit}}</i></span>
+						</p>
+						<img src="../image/icon/sx1.png"  v-if="index===changeImgIndex && typeString=='breakfast'" :class="{huan:(index===animateIndex && typeString=='breakfast')}"  @click="changeRecipe(item,breakfast.mealType,'breakfast',index)">
+						<img src="../image/icon/sx.png" v-else :class="{huan:(index===animateIndex && typeString=='breakfast')}"  @click="changeRecipe(item,breakfast.mealType,'breakfast',index)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="breakfastAddition.foodList && breakfastAddition.foodList.length>0">
+			<h4 class="recipelistTit"><span>早加</span><p>{{breakfastAddition.heat}}大卡</p></h4>
+			<div class="recipelist">
+				<ul>
+					<li v-for="(item,index) in breakfastAddition.foodList" :key="index">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.foodName}}<i>{{item.foodHeat}}大卡/{{item.foodCount}}{{item.unit}}</i></span>
+						</p>
+						<img src="../image/icon/sx1.png"  v-if="index===changeImgIndex && typeString=='breakfastAddition'" :class="{huan:index===animateIndex && typeString=='breakfastAddition'}" @click="changeRecipe(item,breakfastAddition.mealType,'breakfastAddition',index)">
+						<img src="../image/icon/sx.png" v-else :class="{huan:index===animateIndex && typeString=='breakfastAddition'}" @click="changeRecipe(item,breakfastAddition.mealType,'breakfastAddition',index)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="lunch.foodList && lunch.foodList.length>0">
+			<h4 class="recipelistTit"><span>午餐</span><p>{{lunch.heat}}大卡</p></h4>
+			<div class="recipelist">
+				<ul>
+					<li v-for="(item,index) in lunch.foodList" :key="index">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.foodName}}<i>{{item.foodHeat}}大卡/{{item.foodCount}}{{item.unit}}</i></span>
+						</p>
+						<img src="../image/icon/sx1.png"  v-if="index===changeImgIndex && typeString=='lunch'" :class="{huan:index===animateIndex && typeString=='lunch'}" @click="changeRecipe(item,lunch.mealType,'lunch',index)">
+						<img src="../image/icon/sx.png" v-else :class="{huan:index===animateIndex && typeString=='lunch'}" @click="changeRecipe(item,lunch.mealType,'lunch',index)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="lunchAddition.foodList && lunchAddition.foodList.length>0">
+			<h4 class="recipelistTit"><span>午加</span><p>{{lunchAddition.heat}}大卡</p></h4>
+			<div class="recipelist">
+				<ul>
+					<li v-for="(item,index) in lunchAddition.foodList" :key="index">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.foodName}}<i>{{item.foodHeat}}大卡/{{item.foodCount}}{{item.unit}}</i></span>
+						</p>
+						<img src="../image/icon/sx1.png" v-if="index===changeImgIndex && typeString=='lunchAddition'" :class="{huan:index===animateIndex && typeString=='lunchAddition'}" @click="changeRecipe(item,lunchAddition.mealType,'lunchAddition',index)">
+						<img src="../image/icon/sx.png" v-else :class="{huan:index===animateIndex && typeString=='lunchAddition'}" @click="changeRecipe(item,lunchAddition.mealType,'lunchAddition',index)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="dinner.foodList && dinner.foodList.length>0">
+			<h4 class="recipelistTit"><span>晚餐</span><p>{{dinner.heat}}大卡</p></h4>
+			<div class="recipelist">
+				<ul>
+					<li v-for="(item,index) in dinner.foodList" :key="index">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.foodName}}<i>{{item.foodHeat}}大卡/{{item.foodCount}}{{item.unit}}</i></span>
+						</p>
+						<img src="../image/icon/sx1.png" v-if="index===changeImgIndex && typeString=='dinner'" :class="{huan:index===animateIndex && typeString=='dinner'}" @click="changeRecipe(item,dinner.mealType,'dinner',index)">
+						<img src="../image/icon/sx.png" v-else :class="{huan:index===animateIndex && typeString=='dinner'}" @click="changeRecipe(item,dinner.mealType,'dinner',index)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="writeBox mtb24 messageBox" v-show="dinnerAddition.foodList && dinnerAddition.foodList.length>0">
+			<h4 class="recipelistTit"><span>晚加</span><p>{{dinnerAddition.heat}}大卡</p></h4>
+			<div class="recipelist">
+				<ul>
+					<li v-for="(item,index) in dinnerAddition.foodList" :key="index">
+						<p>
+							<img :src="item.imageUrl">
+							<span>{{item.foodName}}<i>{{item.foodHeat}}大卡/{{item.foodCount}}{{item.unit}}</i></span>
+						</p>
+						<img src="../image/icon/sx1.png" v-if="index===changeImgIndex && typeString=='dinnerAddition'" :class="{huan:index===animateIndex && typeString=='dinnerAddition'}" @click="changeRecipe(item,dinnerAddition.mealType,'dinnerAddition',index)">
+						<img src="../image/icon/sx.png" v-else :class="{huan:index===animateIndex && typeString=='dinnerAddition'}" @click="changeRecipe(item,dinnerAddition.mealType,'dinnerAddition',index)">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btnBox">
+			<div class="titleBtn" @click="estimate()">
+				<i class="icon-zl calcs iconfont icon-peican-gusuanzhongliang-"></i>
+				估算食物重量</div>
+			<div class="titleBtn" @click="currentMaterial()">
+				<i class="icon-zl iconfont icon-peican-chakanshicai-"></i>
+				查看食材</div>
+		</div>
+		<div class="writeBox mtb24 messageBox">
+			<div class="ruleList">
+				<h3>饮食原则</h3>
+				<ul v-show="dietPrincipleDetl && dietPrincipleDetl.length>0">
+					<li v-for="item in dietPrincipleDetl">{{item}} </li>
+				</ul>
+			</div>
+		</div>
+		<div class="butBoxFixed">
+			<span :class="{active:isActive}" @click="resetRecipes()">调整配餐</span>
+			<span :class="{active:isActive}" @click="backs()">返回</span>
+		</div>
+
+		<div class="conformBox toast" @click="shutDown()" v-show="isShowBox">
+			<div class="containerBoxnr">
+				<img src="../image/icon/gb.png" @click="shutDown()">
+				<dl>
+					<dt>调整配餐，将为您重新生成一周饮食计划，确认调整吗？</dt>
+					<dd><span class="cancle" @click="shutDown()">取消</span><span @click="sure()">确定</span></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<script src="../js/libs/jquery-1.10.1.min.js"></script>
+	<script src="../js/libs/vue.min.js"></script>
+	<script src="../js/libs/echarts.min.js"></script>
+	<script src="../js/libs/jsrsasign-all-min.js"></script>
+	<script src=".././config.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/weekdiet.js"></script>
+</body>
+</html>
